@@ -7,7 +7,6 @@ import { EliminazioneComponent } from './eliminazione/eliminazione.component';
 import { CaricoComponent } from './carico/carico.component';
 import { ScaricoComponent } from './scarico/scarico.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { VisualizzamovimentiComponent } from './visualizzamovimenti/visualizzamovimenti.component';
 
 export const routes: Routes = [
 
@@ -45,9 +44,5 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent
-    },
-    {
-        path: 'visualizzamovimenti',
-        component: VisualizzamovimentiComponent
     }
 ];

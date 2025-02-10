@@ -3,7 +3,7 @@
   
     <!-- Mostra il messaggio di errore se le credenziali non sono valide -->
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-  
+    <br>
     <form (ngSubmit)="onRegistrazione()">
           <div class="form-group">
             <label for="nome">Nome</label>
@@ -17,6 +17,7 @@
               class="form-control"
             />
           </div>
+          <br>
           <div class="form-group">
             <label for="cognome">Cognome</label>
             <input
@@ -29,32 +30,33 @@
               class="form-control"
             />
           </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="text"
-          id="email"
-          [(ngModel)]="email"
-          name="email"
-          placeholder="Inserisci il tuo email"
-          required
-          class="form-control"
-        />
-      </div>
-  
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          [(ngModel)]="password"
-          name="password"
-          placeholder="Inserisci la tua password"
-          required
-          class="form-control"
-        />
-      </div>
-      
+          <br>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              [(ngModel)]="email"
+              name="email"
+              placeholder="Inserisci il tuo email"
+              required
+              class="form-control"
+            />
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              placeholder="Inserisci la tua password"
+              required
+              class="form-control"
+            />
+          </div>
+          <br>
   
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Registrazione</button>

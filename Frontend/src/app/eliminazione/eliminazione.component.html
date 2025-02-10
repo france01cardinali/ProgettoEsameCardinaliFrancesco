@@ -3,10 +3,10 @@
   
     <!-- Mostra il messaggio di errore se le credenziali non sono valide -->
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-  
+    <br>
     <form (ngSubmit)="onEliminazione()">
           <div class="form-group" >
-            <label for="id" >Id</label>
+            <label for="id" >Inserisci l'Id del prodotto</label>
             <br>
             <input
               type="text"

@@ -2,7 +2,7 @@
     <h2>Creazione prodotto</h2>
   
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-  
+    <br>
     <form (ngSubmit)="onCreazione()">
           <div class="form-group">
             <label for="nome">Nome</label>
@@ -16,6 +16,7 @@
               class="form-control"
             />
           </div>
+          <br>
           <div class="form-group">
             <label for="codice">Codice</label>
             <input
@@ -28,6 +29,7 @@
               class="form-control"
             />
           </div>
+          <br>
       <div class="form-group">
         <label for="quantita">Quantita</label>
         <input
@@ -40,7 +42,7 @@
           class="form-control"
         />
       </div>
-  
+      <br>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Creazione</button>
       </div>
