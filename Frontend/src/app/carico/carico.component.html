@@ -1,0 +1,44 @@
+<div class="Carico-container">
+    <h2>Carico quantità prodotto</h2>
+  
+    <!-- Mostra il messaggio di errore se le credenziali non sono valide -->
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <form (ngSubmit)="onCarico()">
+          <div class="form-group" >
+            <label for="carico" >Quantià da aggiungere</label>
+            <br>
+            <input
+              type="text"
+              id="carico"
+              [(ngModel)]="quantita"
+              name="carico"
+              placeholder="Inserisci la quantià del prodotto da aggiungere"
+              required
+              class="form-control"
+            />
+          </div>
+          <br>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Carico</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Operazione riuscita</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          L'aggiunta di quantità di prodotto è andata a buon fine
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="goToVisualizzazione()">Torna alla visualizzazione</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

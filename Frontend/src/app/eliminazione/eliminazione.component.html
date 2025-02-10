@@ -1,0 +1,45 @@
+<div class="eliminazione-container">
+    <h2>Eliminazione prodotto</h2>
+  
+    <!-- Mostra il messaggio di errore se le credenziali non sono valide -->
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <form (ngSubmit)="onEliminazione()">
+          <div class="form-group" >
+            <label for="id" >Id</label>
+            <br>
+            <input
+              type="text"
+              id="id"
+              [(ngModel)]="id"
+              name="id"
+              placeholder="Inserisci l'id del prodotto"
+              required
+              class="form-control"
+            />
+          </div>
+          <br>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Eliminazione</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Operazione riuscita</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Il prodotto è stato eliminato con successo.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="goToVisualizzazione()">Torna alla visualizzazione</button>
+          <button type="button" class="btn btn-primary" (click)="continueDelete()">Continua a eliminare</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

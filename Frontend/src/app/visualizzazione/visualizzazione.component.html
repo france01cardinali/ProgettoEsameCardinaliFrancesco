@@ -1,0 +1,56 @@
+
+<br>
+<p *ngIf="prodotti.length == 0">Nessun prodotto disponibile.</p>
+
+<div class="table-container">
+    <table class="table" *ngIf="prodotti.length > 0">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Codice</th>
+          <th>Quantità</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prodotto of prodotti">
+          <td>{{ prodotto.id }}</td>
+          <td>{{ prodotto.nome }}</td>
+          <td>{{ prodotto.codice }}</td>
+          <td>{{ prodotto.quantita }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="apriPopup(prodotto.id)">Gestisci</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal fade" id="caricoScaricoModal" tabindex="-1" aria-labelledby="caricoScaricoModalLabel" aria-hidden="true"> 
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="caricoScaricoModalLabel">Scegli un'azione</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Vuoi caricare o scaricare il prodotto <strong>{{ idprodottoSelezionato }}</strong>?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="vaiAllaPagina('carico')">Carico</button>
+          <button type="button" class="btn btn-danger" (click)="vaiAllaPagina('scarico')">Scarico</button>
+          <button type="button" class="btn btn-secondary" (click)="chiudiPopup()">Annulla</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="link-container">
+    <a [routerLink]="['/creazione']">Aggiungi prodotto</a>
+    ,
+    <a [routerLink]="['/eliminazione']">Elimina prodotto</a>
+
+  </div>
+  
+  

@@ -1,0 +1,55 @@
+<div class="login-container">
+    <h2>Login</h2>
+  
+    <!-- Mostra il messaggio di errore se le credenziali non sono valide -->
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <form (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Inserisci il tuo email"
+          required
+          class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Inserisci la tua password"
+          required
+          class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Operazione riuscita</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Login effettuato con successo.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="goToVisualizzazione()">Vai alla Visualizzazione dei prodotti</button>
+        </div>
+      </div>
+    </div>
+  </div>

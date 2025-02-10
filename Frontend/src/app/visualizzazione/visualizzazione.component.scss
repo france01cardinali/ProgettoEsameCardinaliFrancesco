@@ -1,0 +1,15 @@
+.table-container {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  
+  .link-container {
+    max-width: 95%;  /* Imposta la stessa larghezza della tabella */
+    margin: 20px auto 0;  /* Centra il link e aggiungi un po' di spazio sopra */
+  }
+  
+  a {
+    display: inline-block;  /* Opzionale, per trattare il link come blocco inline */
+    text-decoration: none;  /* Rimuovi la sottolineatura se desiderato */
+    color: #007bff;  /* Colore personalizzato per il link */
+  }
