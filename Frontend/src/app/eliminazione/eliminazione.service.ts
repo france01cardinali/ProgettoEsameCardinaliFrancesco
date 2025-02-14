@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EliminazioneService {
 
-  private loginUrl = 'http://localhost:3000/api/eliminazione';  // URL del tuo backend
+  private loginUrl = environment.api+"/eliminazione";  // URL del tuo backend
 
   constructor(private http: HttpClient) { }
 

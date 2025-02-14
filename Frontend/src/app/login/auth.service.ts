@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/api';  // URL del tuo backend
+  private apiUrl = environment.api+"/login";  // URL del tuo backend
   private loggedInSource = new BehaviorSubject<boolean>(this.isLoggedIn());  // Stato del login
 
   loggedIn$ = this.loggedInSource.asObservable();  // Observable per i componenti
@@ -15,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { email, password });
+    return this.http.post<any>(this.apiUrl, { email, password });
   }
 
   getToken(): string | null {
@@ -26,13 +27,7 @@ export class AuthService {
     return !!this.getToken();
   }
 
-  getUserData(): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `${this.getToken()}`
-    });
-    return this.http.get(`${this.apiUrl}/utente`, { headers });
-  }
-
+ 
   logout(): void {
     localStorage.removeItem('token');
     this.loggedInSource.next(false);  // Aggiorna lo stato del login

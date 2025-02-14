@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as bootstrap from 'bootstrap';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment.development';
 
 
 interface Prodotto {
@@ -36,7 +37,7 @@ fetchProdotti() {
   const token = localStorage.getItem('token'); // Recupera il token dal localStorage
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-  this.httpClient.get<Prodotto[]>('http://localhost:3000/api/visualizzazione', { headers })
+  this.httpClient.get<Prodotto[]>(environment.api+'/visualizzazione', { headers })
     .subscribe({
       next: (risultato) => {
         this.prodotti = risultato;
