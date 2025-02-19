@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: ./Backend   # Specifica il contesto di build
+      dockerfile: Dockerfile # Specifica il nome del Dockerfile (facoltativo se il nome è standard)
+    container_name: backend-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Backend:/app
+    
+  

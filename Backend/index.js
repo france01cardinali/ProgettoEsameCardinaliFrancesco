@@ -14,12 +14,12 @@ app.use(express.static('public'));
 
 //app.use(express.static('public'))
 // Crea la connessione al database
-const connessione = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'magazzino',
-});
+  const connessione = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'magazzino',
+  });
 
 // Connessione al database
 connessione.connect((err) => {
@@ -106,7 +106,7 @@ app.post('/api/creazione',authenticateToken,(req, res) => {
 });
 
 //eliminazione prodotto
-app.post('/api/eliminazione',authenticateToken,(req, res) => {
+app.delete('/api/eliminazione',authenticateToken,(req, res) => {
   const {id} = req.body;
   connessione.query('DELETE FROM prodotti WHERE id = ? ', [id], (err, results) => {
     if (err) {
